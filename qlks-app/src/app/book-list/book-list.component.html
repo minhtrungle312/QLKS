@@ -1,0 +1,45 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title ">Danh sách phòng đã đặt</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="booking">
+                            <h3>Danh sách phòng đang đặt</h3>
+                            <ul class="room-book">
+                                <!-- <li *ngFor="let room of bookingList | paginate: { itemsPerPage: 5, currentPage: p }" [class.selected]="room === selected" (click)="onSelect(room)"> -->
+                                <li *ngFor="let room of bookingList" [class.selected]="room === selected" (click)="onSelect(room)">
+                                    <!-- <span class="badge">{{room.img}}</span> -->
+                                    <span><img class="img-size" src={{room.imgPath}} /></span>
+                                    <span class="room-name">{{room.name}}</span>
+                                    <span class="room-hire-date">{{room.hireDate}}</span>
+                                    <span class="room-return-date">{{room.returnDate}}</span>
+                                    <span class="room-pay-ment">{{room.payMent}}</span>
+                                    <span><button class="btn"><i style="font-size: small;" class="fa fa-info" aria-hidden="true" (click)="onOpenDetail(room)"></i> Chi tiết</button></span>
+                                </li>
+                            </ul>
+                            <!-- <pagination-controls (pageChange)="p = $event"></pagination-controls> -->
+                        </div>
+                        <div class="book-history">
+                            <h3>Lịch sử đặt phòng</h3>
+                            <ul class="room-book">
+                                <li *ngFor="let room of historyList" [class.selected]="room === selected" (click)="onSelect(room)">
+                                    <!-- <span class="badge">{{room.img}}</span> -->
+                                    <span><img class="img-size" src={{room.imgPath}} /></span>
+                                    <span class="room-name">{{room.name}}</span>
+                                    <span class="room-hire-date">{{room.hireDate}}</span>
+                                    <span class="room-return-date">{{room.returnDate}}</span>
+                                    <span class="room-pay-ment">{{room.payMent}}</span>
+                                    <span><button class="btn"><i class="fa fa-info" aria-hidden="true" (click)="onOpenDetail(room)"></i> Chi tiết</button></span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

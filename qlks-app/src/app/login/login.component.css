@@ -1,0 +1,9 @@
+.req {
+ color: rgb(243, 14, 14);
+}
+.col-form-label {
+    width: 120px;
+}
+.row {
+    display: flex;
+}

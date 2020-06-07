@@ -1,0 +1,70 @@
+<div *ngIf="loginMode">
+<h2 mat-dialog-title>Đăng nhập</h2>
+<mat-dialog-content>
+  <div class="form-group row">
+    <label class="col-form-label">
+      Tên đăng nhập <span class="req">*</span>
+    </label>
+    <input class="form-control" type="text" [(ngModel)]="data.username"/>
+  </div>
+  <div class="form-group row">
+    <label class="col-form-label">
+      Mật khẩu <span class="req">*</span>
+    </label>
+    <input class="form-control" type="password" [(ngModel)]="data.password"/>
+  </div>
+  <div class="form-group">
+    <button mat-button class="btn" (click)="changeMode()">
+      Chưa có tài khoản</button>
+  </div>
+  <div class="form-group">
+    <button mat-button class="btn" (click)="changeMode()">
+      Quên mật khẩu
+    </button>
+  </div>
+</mat-dialog-content>
+</div>
+<div *ngIf="!loginMode">
+  <h2 mat-dialog-title>Đăng ký</h2>
+<mat-dialog-content>
+  <div class="form-group">
+    <label class="col-form-label">
+      Tên đăng nhập<span class="req">*</span>
+    </label>
+    <input class="form-control" type="text"/>
+  </div>
+  <div class="form-group">
+    <label class="col-form-label">
+      Họ tên<span class="req">*</span>
+    </label>
+    <input class="form-control" type="password"/>
+  </div>
+  <div class="form-group">
+    <label class="col-form-label">
+      Địa chỉ Email<span class="req">*</span>
+    </label>
+    <input class="form-control" type="password"/>
+  </div>
+  <div class="form-group">
+    <label class="col-form-label">
+      Mật khẩu<span class="req">*</span>
+    </label>
+    <input class="form-control" type="password"/>
+  </div>
+  <div class="form-group">
+    <label class="col-form-label">
+      Nhập lại mật khẩu<span class="req">*</span>
+    </label>
+    <input class="form-control" type="password"/>
+  </div>
+  <button mat-button class="btn" (click)="changeMode()">
+  Đăng nhập</button>
+</mat-dialog-content>
+</div>
+<mat-dialog-actions>
+  <div class="row" style="justify-content: center;">
+  <button *ngIf="loginMode" mat-button [mat-dialog-close]="data" class="btn" (click)="execute('LOGIN')" cdkFocusInitial>Đăng nhập</button>
+  <button *ngIf="!loginMode" mat-button [mat-dialog-close]="data" class="btn" (click)="execute('REGISTER')" cdkFocusInitial>Đăng ký</button>
+  <button mat-button class="btn" (click)="onCancel()">Đóng</button>
+</div>
+</mat-dialog-actions>

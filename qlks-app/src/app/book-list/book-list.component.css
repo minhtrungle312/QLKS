@@ -1,0 +1,73 @@
+.main-content {
+    margin-top: 70px;
+}
+
+.room-book {
+    margin: 0 0 2em 0;
+    list-style-type: none;
+    padding: 0;
+    width: 100%;
+}
+
+.room-book li {
+    cursor: pointer;
+    position: relative;
+    left: 0;
+    background-color: #EEE;
+    margin: .5em;
+    padding: .3em 0;
+    height: 100px;
+    border-radius: 4px;
+}
+
+.room-book li:hover {
+    color: #607D8B;
+    background-color: #DDD;
+    left: .1em;
+}
+
+.room-book li.selected {
+    background-color: #CFD8DC;
+    color: white;
+}
+
+.room-book li.selected:hover {
+    background-color: #BBD8DC;
+    color: white;
+}
+
+.room-book .badge {
+    display: inline-block;
+    font-size: small;
+    color: white;
+    padding: 0.8em 0.7em 0 0.7em;
+    background-color: #405061;
+    line-height: 1em;
+    position: relative;
+    left: -1px;
+    top: -4px;
+    height: auto;
+    margin-right: .8em;
+    border-radius: 4px 0 0 4px;
+}
+
+.room-book .room-name {
+    margin: 0px 50px 0px 50px;
+}
+
+.room-book .room-hire-date {
+    margin: 0px 50px 0px 50px;
+}
+
+.room-book .room-return-date {
+    margin: 0px 50px 0px 50px;
+}
+
+.room-book .room-pay-ment {
+    margin: 0px 50px 0px 50px;
+}
+
+.img-size {
+    width: 90px;
+    height: 90px;
+}

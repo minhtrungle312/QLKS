@@ -1,0 +1,9 @@
+<h2 mat-dialog-title>Chi tiết đặt phòng</h2>
+<mat-dialog-content>
+
+</mat-dialog-content>
+<mat-dialog-actions>
+    <button mat-button [mat-dialog-close]="data" class="btn" (click)="execute('UPDATE')" cdkFocusInitial>Cập nhập</button>
+    <button mat-button [mat-dialog-close]="data" class="btn" (click)="execute('DELETE')" cdkFocusInitial>Hủy đặt phòng</button>
+    <button mat-button class="btn" (click)="onClose()">Đóng</button>
+</mat-dialog-actions>

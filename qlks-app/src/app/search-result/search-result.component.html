@@ -1,0 +1,25 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title ">Kết quả tìm kiếm</h4>
+                    </div>
+                    <div class="card-body">
+                        <ul class="list">
+                            <!-- <li *ngFor="let room of bookingList | paginate: { itemsPerPage: 5, currentPage: p }" [class.selected]="room === selected" (click)="onSelect(room)"> -->
+                            <li *ngFor="let hotel of resultList" [class.selected]="hotel === selected" (click)="onSelect(hotel)">
+                                <!-- <span class="badge">{{room.img}}</span> -->
+                                <span><img class="img-size" src={{hotel.img}} /></span>
+                                <span class="hotel-city-name">{{hotel.city}}</span>
+                                <span class="hotel-name">{{hotel.name}}</span>
+                                <span class="hotel-remark">{{hotel.remark}}</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
