@@ -134,6 +134,11 @@ export class NavbarComponent implements OnInit {
     onOpenLogin() {
         const dialogRef = this.dialog.open(LoginComponent);
         dialogRef.afterClosed().subscribe(result => {
+            if (result.roleCode == 1) {
+                this.router.navigate(['/'])
+            } else if (result.roleCode == 2) {
+                    this.router.navigate(['admin/admin/revenue'])
+                }
             console.log(result);
             this.isLogin = true;
         });

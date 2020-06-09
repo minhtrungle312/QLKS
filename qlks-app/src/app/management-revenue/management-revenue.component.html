@@ -1,1 +1,121 @@
-<p>management-revenue works!</p>
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title ">Quản lý doanh thu</h4>
+                        <!-- <p class="card-category"> Here is a subtitle for this table</p> -->
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <h4>Chọn Loại Thống kê:</h4>
+                                <mat-form-field>
+                                    <mat-label>Chọn Loại Thống kê</mat-label>
+                                    <mat-select [(ngModel)]="selectDropdown" (selectionChange)="onSelect($event)">
+                                        <mat-option *ngFor="let type of typeRevenue" [value]="type.value">
+                                            {{type.viewValue}}
+                                        </mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </div>
+                            <div class="col-md-4">
+                                <h4>Chọn Tháng:</h4>
+                                <mat-form-field>
+                                    <mat-label>Chọn Tháng</mat-label>
+                                    <mat-select>
+                                        <mat-option *ngFor="let month of monthList" [value]="month.value">
+                                            {{month.viewValue}}
+                                        </mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </div>
+                            <div *ngIf="isSelectDay" class="col-md-4">
+                                <h4>Chọn Ngày:</h4>
+                                <mat-form-field>
+                                    <mat-label>Chọn Loại Thống kê</mat-label>
+                                    <mat-select>
+                                        <mat-option *ngFor="let day of daylist" [value]="day.value">
+                                            {{day.viewValue}}
+                                        </mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </div>
+
+                        </div>
+                        <!-- <div class="table-responsive">
+                            <table class="table">
+                                <thead class=" text-primary">
+                                    <th>
+                                        Hình ảnh
+                                    </th>
+                                    <th>
+                                        Mã KS
+                                    </th>
+                                    <th>
+                                        Tên khách sạn
+                                    </th>
+                                    <th>
+                                        Địa chỉ
+                                    </th>
+                                    <th>
+                                        Email
+                                    </th>
+                                    <th>
+                                        SDT
+                                    </th>
+                                    <th>
+
+                                    </th>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let hotel of hotelList">
+                                        <td>
+                                            {{hotel.stt}}
+                                        </td>
+                                        <td>
+                                            {{hotel.hotelCode}}
+                                        </td>
+                                        <td>
+                                            {{hotel.hotelName}}
+                                        </td>
+                                        <td>
+                                            {{hotel.address}}
+                                        </td>
+                                        <td>
+                                            {{hotel.email}}
+                                        </td>
+                                        <td>
+                                            {{hotel.std}}
+                                        </td>
+                                        <td>
+                                            <button (click)="onOpenDialog('DELETE', hotel)">
+                                                <i class="material-icons">delete</i>
+                                            </button>
+                                            <button (click)="onOpenDialog('UPDATE', hotel)">
+                                                <i class="material-icons">edit_road</i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td style="text-align: end;">
+                                            <button (click)="onOpenDialog('ADD')">
+                                                <i class="material-icons">add</i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

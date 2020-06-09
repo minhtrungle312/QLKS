@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MCityDtlComponent } from './m-city-dtl/m-city-dtl.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-management-city-list',
@@ -7,9 +9,31 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ManagementCityListComponent implements OnInit {
 
-  constructor() { }
+  public cityList: any = [];
+
+  mockData = [
+    {stt: '1', pic:'', cityCode: 'QN', cityName: 'Quy Nhơn'},
+    {stt: '2', pic:'', cityCode: 'QaNa', cityName: 'Quảng Nam'},
+    {stt: '3', pic:'', cityCode: 'ĐN', cityName: 'Đà Nẵng'},
+    {stt: '4', pic:'', cityCode: 'SG', cityName: 'TP. Hồ Chí Minh'},
+  ]
+  constructor(public dialog: MatDialog) { }
 
   ngOnInit(): void {
+    this.cityList =this.mockData;
+  }
+  onOpenDialog(state: any, cityDtl: any) {
+    if (state == 'ADD') {
+      cityDtl = [];
+    }
+    let itemTmp: any = [];
+    itemTmp = cityDtl;
+    itemTmp.state = state;
+    const dialogRef = this.dialog.open(MCityDtlComponent, {
+      data: {itemDtl: itemTmp}
+    })
+    dialogRef.afterClosed().subscribe(result => {
+  });
   }
 
 }

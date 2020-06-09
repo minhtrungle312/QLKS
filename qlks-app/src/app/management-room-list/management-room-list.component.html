@@ -1,1 +1,85 @@
-<p>management-room-list works!</p>
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title ">Danh sách phòng</h4>
+                        <!-- <p class="card-category"> Here is a subtitle for this table</p> -->
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead class=" text-primary">
+                                    <th>
+                                        Mã Khách sạn
+                                    </th>
+                                    <th>
+                                        Mã Phòng
+                                    </th>
+                                    <th>
+                                        Tên Phòng
+                                    </th>
+                                    <th>
+                                        Giá tiền
+                                    </th>
+                                    <th>
+                                        Tình trạng
+                                    </th>
+                                    <th>
+                                        Loại Phòng
+                                    </th>
+                                    <th>
+
+                                    </th>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let room of roomList">
+                                        <td>
+                                            {{room.hotelCode}}
+                                        </td>
+                                        <td>
+                                            {{room.roomCode}}
+                                        </td>
+                                        <td>
+                                            {{room.roomName}}
+                                        </td>
+                                        <td>
+                                            {{room.price}}
+                                        </td>
+                                        <td>
+                                            {{room.isBooking}}
+                                        </td>
+                                        <td>
+                                            {{room.roomType}}
+                                        </td>
+                                        <td>
+                                            <button (click)="onOpenDialog('DELETE', room)">
+                                                <i class="material-icons">delete</i>
+                                            </button>
+                                            <button (click)="onOpenDialog('UPDATE', room)">
+                                                <i class="material-icons">edit_road</i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td style="text-align: end;">
+                                            <button (click)="onOpenDialog('ADD')">
+                                                <i class="material-icons">add</i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

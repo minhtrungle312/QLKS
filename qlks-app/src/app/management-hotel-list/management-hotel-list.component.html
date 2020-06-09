@@ -4,7 +4,7 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header card-header-danger">
-                        <h4 class="card-title ">Danh sách khách sạnA</h4>
+                        <h4 class="card-title ">Danh sách khách sạn</h4>
                         <!-- <p class="card-category"> Here is a subtitle for this table</p> -->
                     </div>
                     <div class="card-body">
@@ -12,7 +12,7 @@
                             <table class="table">
                                 <thead class=" text-primary">
                                     <th>
-                                        STT
+                                        Hình ảnh
                                     </th>
                                     <th>
                                         Mã KS
@@ -34,124 +34,38 @@
                                     </th>
                                 </thead>
                                 <tbody>
-                                    <tr>
+                                    <tr *ngFor="let hotel of hotelList">
                                         <td>
-                                            1
+                                            {{hotel.stt}}
                                         </td>
                                         <td>
-                                            MT_QN
+                                            {{hotel.hotelCode}}
                                         </td>
                                         <td>
-                                            Khách sạn Mường Thanh Quy Nhơn
+                                            {{hotel.hotelName}}
                                         </td>
                                         <td>
-                                            2 Nguyễn Huệ, Tp.Qui Nhơn
+                                            {{hotel.address}}
                                         </td>
                                         <td>
-                                            mtqn@mail.com
+                                            {{hotel.email}}
                                         </td>
                                         <td>
-                                            0256-123-456
+                                            {{hotel.std}}
                                         </td>
                                         <td>
-                                            <i class="material-icons">delete</i>
-                                            <i class="material-icons">edit_road</i>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            1
-                                        </td>
-                                        <td>
-                                            MT_QN
-                                        </td>
-                                        <td>
-                                            Khách sạn Mường Thanh Quy Nhơn
-                                        </td>
-                                        <td>
-                                            2 Nguyễn Huệ, Tp.Qui Nhơn
-                                        </td>
-                                        <td>
-                                            mtqn@mail.com
-                                        </td>
-                                        <td>
-                                            0256-123-456
-                                        </td>
-                                        <td>
-                                            <i class="material-icons">delete</i>
-                                            <i class="material-icons">edit_road</i>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            1
-                                        </td>
-                                        <td>
-                                            MT_QN
-                                        </td>
-                                        <td>
-                                            Khách sạn Mường Thanh Quy Nhơn
-                                        </td>
-                                        <td>
-                                            2 Nguyễn Huệ, Tp.Qui Nhơn
-                                        </td>
-                                        <td>
-                                            mtqn@mail.com
-                                        </td>
-                                        <td>
-                                            0256-123-456
-                                        </td>
-                                        <td>
-                                            <i class="material-icons">delete</i>
-                                            <i class="material-icons">edit_road</i>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            1
-                                        </td>
-                                        <td>
-                                            MT_QN
-                                        </td>
-                                        <td>
-                                            Khách sạn Mường Thanh Quy Nhơn
-                                        </td>
-                                        <td>
-                                            2 Nguyễn Huệ, Tp.Qui Nhơn
-                                        </td>
-                                        <td>
-                                            mtqn@mail.com
-                                        </td>
-                                        <td>
-                                            0256-123-456
-                                        </td>
-                                        <td>
-                                            <i class="material-icons">delete</i>
-                                            <i class="material-icons">edit_road</i>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            1
-                                        </td>
-                                        <td>
-                                            MT_QN
-                                        </td>
-                                        <td>
-                                            Khách sạn Mường Thanh Quy Nhơn
-                                        </td>
-                                        <td>
-                                            2 Nguyễn Huệ, Tp.Qui Nhơn
-                                        </td>
-                                        <td>
-                                            mtqn@mail.com
-                                        </td>
-                                        <td>
-                                            0256-123-456
-                                        </td>
-                                        <td>
-                                            <i class="material-icons">delete</i>
-                                            <i class="material-icons">edit_road</i>
+                                            <!-- <button (click)="onOpenDialog('DELETE', hotel)">
+                                                <i class="material-icons">delete</i>
+                                            </button>
+                                            <button click)="onOpenDialog('UPDATE', hotel)">
+                                                <i class="material-icons">edit_road</i>
+                                            </button> -->
+                                            <button (click)="onOpenDialog('DELETE', hotel)">
+                                                <i class="material-icons">delete</i>
+                                            </button>
+                                            <button (click)="onOpenDialog('UPDATE', hotel)">
+                                                <i class="material-icons">edit_road</i>
+                                            </button>
                                         </td>
                                     </tr>
                                     <tr>
@@ -161,7 +75,9 @@
                                         <td></td>
                                         <td></td>
                                         <td style="text-align: end;">
-                                            <i class="material-icons">add</i>
+                                            <button (click)="onOpenDialog('ADD')">
+                                                <i class="material-icons">add</i>
+                                            </button>
                                         </td>
                                     </tr>
                                 </tbody>

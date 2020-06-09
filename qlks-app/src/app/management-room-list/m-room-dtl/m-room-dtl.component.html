@@ -1,0 +1,47 @@
+<h2 mat-dialog-title>Chi tiết phòng</h2>
+<mat-dialog-content>
+    <div class="form-group row">
+        <label class="col-form-label">
+          Mã Khách Sạn <span class="req">*</span>
+        </label>
+        <input class="form-control" type="text" [(ngModel)]="data.hotelCode" />
+    </div>
+    <div class="form-group row">
+        <label class="col-form-label">
+          Mã phòng <span class="req">*</span>
+        </label>
+        <input class="form-control" type="text" [(ngModel)]="data.roomCode" />
+    </div>
+    <div class="form-group row">
+        <label class="col-form-label">
+          Tên Phòng<span class="req">*</span>
+        </label>
+        <input class="form-control" type="text" [(ngModel)]="data.roomName" />
+    </div>
+    <div class="form-group row">
+        <label class="col-form-label">
+          Giá<span class="req">*</span>
+        </label>
+        <input class="form-control" type="text" [(ngModel)]="data.price" />
+    </div>
+    <div class="form-group row">
+        <label class="col-form-label">
+          Tình Trạng<span class="req">*</span>
+        </label>
+        <input class="form-control" type="text" [(ngModel)]="data.isBooking" />
+    </div>
+    <div class="form-group row">
+        <label class="col-form-label">
+          Loại Phòng<span class="req">*</span>
+        </label>
+        <input class="form-control" type="text" [(ngModel)]="data.roomType" />
+    </div>
+</mat-dialog-content>
+<mat-dialog-actions>
+    <div class="row" style="justify-content: center;">
+        <button *ngIf="isAdd" mat-button [mat-dialog-close]="data" class="btn" (click)="execute('ADD')" cdkFocusInitial>Thêm</button>
+        <button *ngIf="isUpd" mat-button [mat-dialog-close]="data" class="btn" (click)="execute('UPDATE')" cdkFocusInitial>Sửa</button>
+        <button *ngIf="isDel" mat-button [mat-dialog-close]="data" class="btn" (click)="execute('DELETE')" cdkFocusInitial>Xóa</button>
+        <button mat-button class="btn" (click)="onClose()">Đóng</button>
+    </div>
+</mat-dialog-actions>

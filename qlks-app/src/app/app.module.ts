@@ -22,6 +22,9 @@ import { BookListDtlComponent } from './book-list/book-list-dtl/book-list-dtl.co
 import { HotelDtlComponent } from './hotel-dtl/hotel-dtl.component';
 import { RoomDtlComponent } from './room-dtl/room-dtl.component';
 import { BookComponent } from './room-dtl/book/book.component';
+import { MHotelDtlComponent } from './management-hotel-list/m-hotel-dtl/m-hotel-dtl.component';
+import { MRoomDtlComponent } from './management-room-list/m-room-dtl/m-room-dtl.component';
+import { MCityDtlComponent } from './management-city-list/m-city-dtl/m-city-dtl.component';
 
 @NgModule({
   imports: [
@@ -47,7 +50,10 @@ import { BookComponent } from './room-dtl/book/book.component';
     BookListDtlComponent,
     HotelDtlComponent,
     RoomDtlComponent,
-    BookComponent
+    BookComponent,
+    MHotelDtlComponent,
+    MRoomDtlComponent,
+    MCityDtlComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

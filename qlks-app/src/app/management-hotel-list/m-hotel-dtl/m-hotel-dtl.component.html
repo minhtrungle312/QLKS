@@ -1,0 +1,53 @@
+<h2 mat-dialog-title>Chi tiết khách sạn</h2>
+<mat-dialog-content>
+    <div class="form-group row">
+        <label class="col-form-label">
+          Mã Khách Sạn <span class="req">*</span>
+        </label>
+        <input class="form-control" type="text" [(ngModel)]="data.hotelCode" />
+    </div>
+    <div class="form-group row">
+        <label class="col-form-label">
+          Tên Khách Sạn <span class="req">*</span>
+        </label>
+        <input class="form-control" type="text" [(ngModel)]="data.hotelName" />
+    </div>
+    <div class="form-group row">
+        <label class="col-form-label">
+          Thành Phố<span class="req">*</span>
+        </label>
+        <input class="form-control" type="text" [(ngModel)]="data.city" />
+    </div>
+    <div class="form-group row">
+        <label class="col-form-label">
+          Địa Chỉ <span class="req">*</span>
+        </label>
+        <input class="form-control" type="text" [(ngModel)]="data.address" />
+    </div>
+    <div class="form-group row">
+        <label class="col-form-label">
+          Số Điện Thoại <span class="req">*</span>
+        </label>
+        <input class="form-control" type="text" [(ngModel)]="data.email" />
+    </div>
+    <div class="form-group row">
+        <label class="col-form-label">
+          Email <span class="req">*</span>
+        </label>
+        <input class="form-control" type="text" [(ngModel)]="data.email" />
+    </div>
+    <div class="form-group row">
+        <label class="col-form-label">
+          Hình Ảnh <span class="req">*</span>
+        </label>
+        <input class="form-control" type="text" [(ngModel)]="data.img" />
+    </div>
+</mat-dialog-content>
+<mat-dialog-actions>
+    <div class="row" style="justify-content: center;">
+        <button *ngIf="isAdd" mat-button [mat-dialog-close]="data" class="btn" (click)="execute('ADD')" cdkFocusInitial>Thêm</button>
+        <button *ngIf="isUpd" mat-button [mat-dialog-close]="data" class="btn" (click)="execute('UPDATE')" cdkFocusInitial>Sửa</button>
+        <button *ngIf="isDel" mat-button [mat-dialog-close]="data" class="btn" (click)="execute('DELETE')" cdkFocusInitial>Xóa</button>
+        <button mat-button class="btn" (click)="onClose()">Đóng</button>
+    </div>
+</mat-dialog-actions>

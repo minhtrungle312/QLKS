@@ -1,5 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
+import { ResourceLoader } from '@angular/compiler';
 
 @Component({
   selector: 'app-login',
@@ -9,7 +10,7 @@ import { MatDialogRef } from '@angular/material/dialog';
 export class LoginComponent implements OnInit {
 
   public loginMode = true;
-  public data = {};
+  public data: any = {};
   constructor(public dialogRef: MatDialogRef<LoginComponent>) { }
 
   ngOnInit(): void {
@@ -31,6 +32,11 @@ export class LoginComponent implements OnInit {
   }
 
   loginAction() {
+    if (this.data.username == 'admin') {
+      this.data.roleCode = 2
+    } else {
+      this.data.roleCode = 1;
+    }
     this.onCancel;
   }
 
