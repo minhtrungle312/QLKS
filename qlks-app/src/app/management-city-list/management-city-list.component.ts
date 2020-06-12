@@ -12,10 +12,10 @@ export class ManagementCityListComponent implements OnInit {
   public cityList: any = [];
 
   mockData = [
-    {stt: '1', pic:'', cityCode: 'QN', cityName: 'Quy Nhơn'},
-    {stt: '2', pic:'', cityCode: 'QaNa', cityName: 'Quảng Nam'},
-    {stt: '3', pic:'', cityCode: 'ĐN', cityName: 'Đà Nẵng'},
-    {stt: '4', pic:'', cityCode: 'SG', cityName: 'TP. Hồ Chí Minh'},
+    {stt: '1', pic:'/assets/img/qn.jpg', cityCode: 'QN', cityName: 'Quy Nhơn'},
+    {stt: '2', pic:'/assets/img/qana.jpg', cityCode: 'QaNa', cityName: 'Quảng Nam'},
+    {stt: '3', pic:'/assets/img/dn.jpg', cityCode: 'ĐN', cityName: 'Đà Nẵng'},
+    {stt: '4', pic:'/assets/img/sg.jpg', cityCode: 'SG', cityName: 'TP. Hồ Chí Minh'},
   ]
   constructor(public dialog: MatDialog) { }
 

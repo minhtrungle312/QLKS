@@ -24,7 +24,7 @@
                                 <h4>Chọn Tháng:</h4>
                                 <mat-form-field>
                                     <mat-label>Chọn Tháng</mat-label>
-                                    <mat-select>
+                                    <mat-select [(ngModel)]="selectMonth">
                                         <mat-option *ngFor="let month of monthList" [value]="month.value">
                                             {{month.viewValue}}
                                         </mat-option>
@@ -35,84 +35,153 @@
                                 <h4>Chọn Ngày:</h4>
                                 <mat-form-field>
                                     <mat-label>Chọn Loại Thống kê</mat-label>
-                                    <mat-select>
+                                    <mat-select [(ngModel)]="selectDay">
                                         <mat-option *ngFor="let day of daylist" [value]="day.value">
                                             {{day.viewValue}}
                                         </mat-option>
                                     </mat-select>
                                 </mat-form-field>
                             </div>
-
                         </div>
-                        <!-- <div class="table-responsive">
-                            <table class="table">
-                                <thead class=" text-primary">
-                                    <th>
-                                        Hình ảnh
-                                    </th>
-                                    <th>
-                                        Mã KS
-                                    </th>
-                                    <th>
-                                        Tên khách sạn
-                                    </th>
-                                    <th>
-                                        Địa chỉ
-                                    </th>
-                                    <th>
-                                        Email
-                                    </th>
-                                    <th>
-                                        SDT
-                                    </th>
-                                    <th>
-
-                                    </th>
-                                </thead>
-                                <tbody>
-                                    <tr *ngFor="let hotel of hotelList">
-                                        <td>
-                                            {{hotel.stt}}
-                                        </td>
-                                        <td>
-                                            {{hotel.hotelCode}}
-                                        </td>
-                                        <td>
-                                            {{hotel.hotelName}}
-                                        </td>
-                                        <td>
-                                            {{hotel.address}}
-                                        </td>
-                                        <td>
-                                            {{hotel.email}}
-                                        </td>
-                                        <td>
-                                            {{hotel.std}}
-                                        </td>
-                                        <td>
-                                            <button (click)="onOpenDialog('DELETE', hotel)">
-                                                <i class="material-icons">delete</i>
-                                            </button>
-                                            <button (click)="onOpenDialog('UPDATE', hotel)">
-                                                <i class="material-icons">edit_road</i>
-                                            </button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td style="text-align: end;">
-                                            <button (click)="onOpenDialog('ADD')">
-                                                <i class="material-icons">add</i>
-                                            </button>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div> -->
+                        <div class="row">
+                            <button class="btn" (click)="showData()">Tìm kiêm</button>
+                        </div>
+                        <div *ngIf="dayRp" class="row">
+                            <div class="col-md-12">
+                                <h3>Lịch sử đặt phòng ngày {{selectDay}} tháng {{selectMonth}}</h3>
+                                <!-- <ul class="room-book">
+                                    <li *ngFor="let item of data" [class.selected]="room === selected" (click)="onSelect(room)">
+                                        <span class="room-name">{{item.inv}}</span>
+                                        <span class="room-hire-date">{{item.name}}</span>
+                                        <span class="room-return-date">{{item.hotelCd}}</span>
+                                        <span class="room-return-date">{{item.roomCd}}</span>
+                                        <span class="room-return-date">{{item.hireDate}}</span>
+                                        <span class="room-return-date">{{item.returnDate}}</span>
+                                        <span class="room-pay-ment">{{item.payment}}</span>
+                                    </li>
+                                </ul> -->
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <thead class=" text-primary">
+                                            <th>
+                                                Mã hóa đơn
+                                            </th>
+                                            <th>
+                                                Tên người đặt
+                                            </th>
+                                            <th>
+                                                Mã Khách sạn
+                                            </th>
+                                            <th>
+                                                Mã phòng
+                                            </th>
+                                            <th>
+                                                Ngày đặt
+                                            </th>
+                                            <th>
+                                                Ngày trả
+                                            </th>
+                                            <th>
+                                                Tổng tiền
+                                            </th>
+                                        </thead>
+                                        <tbody>
+                                            <tr *ngFor="let item of data">
+                                                <td>
+                                                    {{item.inv}}
+                                                </td>
+                                                <td>
+                                                    {{item.name}}
+                                                </td>
+                                                <td>
+                                                    {{item.hotelCd}}
+                                                </td>
+                                                <td>
+                                                    {{item.roomCd}}
+                                                </td>
+                                                <td>
+                                                    {{item.hireDate}}
+                                                </td>
+                                                <td>
+                                                    {{item.returnDate}}
+                                                </td>
+                                                <td>
+                                                    {{item.payment}}
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div *ngIf="monthRp" class="row">
+                            <div class="col-md-12">
+                                <h3>Lịch sử đặt phòng tháng {{selectMonth}}</h3>
+                                <!-- <ul class="room-book">
+                                    <li *ngFor="let item of data" [class.selected]="room === selected" (click)="onSelect(room)">
+                                        <span class="room-name">{{room.inv}}</span>
+                                        <span class="room-hire-date">{{item.name}}</span>
+                                        <span class="room-return-date">{{item.hotelCd}}</span>
+                                        <span class="room-return-date">{{item.roomCd}}</span>
+                                        <span class="room-return-date">{{item.hireDate}}</span>
+                                        <span class="room-return-date">{{item.returnDate}}</span>
+                                        <span class="room-pay-ment">{{item.payment}}</span>
+                                    </li>
+                                </ul> -->
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <thead class=" text-primary">
+                                            <th>
+                                                Mã hóa đơn
+                                            </th>
+                                            <th>
+                                                Tên người đặt
+                                            </th>
+                                            <th>
+                                                Mã Khách sạn
+                                            </th>
+                                            <th>
+                                                Mã phòng
+                                            </th>
+                                            <th>
+                                                Ngày đặt
+                                            </th>
+                                            <th>
+                                                Ngày trả
+                                            </th>
+                                            <th>
+                                                Tổng tiền
+                                            </th>
+                                        </thead>
+                                        <tbody>
+                                            <tr *ngFor="let item of data">
+                                                <td>
+                                                    {{item.inv}}
+                                                </td>
+                                                <td>
+                                                    {{item.name}}
+                                                </td>
+                                                <td>
+                                                    {{item.hotelCd}}
+                                                </td>
+                                                <td>
+                                                    {{item.roomCd}}
+                                                </td>
+                                                <td>
+                                                    {{item.hireDate}}
+                                                </td>
+                                                <td>
+                                                    {{item.returnDate}}
+                                                </td>
+                                                <td>
+                                                    {{item.payment}}
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
